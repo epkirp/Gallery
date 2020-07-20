@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface GalleryApi {
-    @GET("/api/photos/")
+    /*@GET("/api/photos/")
     fun getNewImages(
         @Query("page") page: Int,
         @Query("limit") limit: Int = RetrofitApi.LIMIT_PAGE,
@@ -18,5 +18,13 @@ interface GalleryApi {
         @Query("page") page: Int,
         @Query("limit") limit: Int = RetrofitApi.LIMIT_PAGE,
         @Query("popular") popular: Boolean = true
-    ): Call<GalleryPart?>
+    ): Call<GalleryPart?>*/
+
+    @GET("/api/photos/")
+    fun getImages(
+        @Query("page") page: Int,
+        @Query("limit") limit: Int = RetrofitApi.LIMIT_PAGE,
+        @Query("new") new: Boolean,
+        @Query("popular") popular: Boolean
+        ): Call<GalleryPart?>
 }

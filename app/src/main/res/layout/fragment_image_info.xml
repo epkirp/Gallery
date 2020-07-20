@@ -1,10 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ll_image_info"
-    android:gravity="center_horizontal"
     android:layout_gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -13,7 +12,7 @@
         android:background="@color/white">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/info_tb"
+            android:id="@+id/infoToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways"
@@ -33,22 +32,21 @@
             android:id="@+id/infoImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            />
+            android:scaleType="centerCrop" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/imageInfoTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18dp"
         android:padding="8dp"
-        android:id="@+id/imageInfoTextName"></TextView>
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18dp" />
 
     <TextView
+        android:id="@+id/imageInfoTextDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:id="@+id/imageInfoTextDescription"></TextView>
+        android:padding="8dp" />
 </LinearLayout>

@@ -9,7 +9,7 @@
     android:layout_margin="8dp">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/item_iv_image"
+        android:id="@+id/itemImageView"
         android:layout_width="match_parent"
         android:layout_height="128dp"
         android:scaleType="centerCrop"

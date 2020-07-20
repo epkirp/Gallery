@@ -11,4 +11,4 @@ data class ImageData(
     val popular: Boolean,
     val image: Image,
     val user: String?
-): Serializable
+) : Serializable

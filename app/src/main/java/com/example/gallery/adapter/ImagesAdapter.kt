@@ -13,18 +13,13 @@ import java.lang.Exception
 
 
 class ImagesAdapter(
+    private var images: ArrayList<ImageData>,
     private var callback: Callback
-): RecyclerView.Adapter<ImagesAdapter.ImageHolder>() {
+) : RecyclerView.Adapter<ImagesAdapter.ImageHolder>() {
 
     interface Callback {
         fun onImageClick(image: ImageData)
     }
-
-    fun setCallback(callback: Callback) {
-        this.callback = callback
-    }
-
-    private val images = ArrayList<ImageData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -38,43 +33,27 @@ class ImagesAdapter(
         holder.onBind(images[position])
     }
 
-    fun addItems(items: List<ImageData>) {
-        this.images.addAll(items)
-        notifyItemRangeInserted(itemCount - items.size, items.size)
-    }
-
-    fun setItems(items: List<ImageData>) {
-        this.images.clear()
-        this.images.addAll(items)
-        notifyDataSetChanged()
-    }
-
-    fun clearItems(){
-        images.clear()
-        notifyDataSetChanged()
-    }
-
-    inner class ImageHolder(val view: View): RecyclerView.ViewHolder(view){
+    inner class ImageHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         init {
-            view.item_iv_image.setOnClickListener {
+            view.itemImageView.setOnClickListener {
                 callback.onImageClick(images[adapterPosition])
             }
         }
 
         fun onBind(item: ImageData) {
-            Picasso.get().load(RetrofitApi.MEDIA_URL + item.image.name).fit().
-            into(view.item_iv_image, object : com.squareup.picasso.Callback {
+            Picasso.get().load(RetrofitApi.MEDIA_URL + item.image.name).fit()
+                .into(view.itemImageView, object : com.squareup.picasso.Callback {
 
-                override fun onSuccess() {
-                    if (view.progressBar != null) {
-                        view.progressBar.visibility = View.GONE;
+                    override fun onSuccess() {
+                        if (view.progressBar != null) {
+                            view.progressBar.visibility = View.GONE
+                        }
                     }
-                }
 
-                override fun onError(e: Exception?) {
-                }
-            })
+                    override fun onError(e: Exception?) {
+                    }
+                })
         }
     }
 

@@ -1,5 +1,5 @@
 <LinearLayout
-    android:id="@+id/ll_no_inet"
+    android:id="@+id/noInetLinearLayout"
     android:visibility="gone"
     tools:visibility="visible"
     android:gravity="center_horizontal"

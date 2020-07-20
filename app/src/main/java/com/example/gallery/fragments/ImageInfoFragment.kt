@@ -13,33 +13,27 @@ import kotlinx.android.synthetic.main.fragment_image_info.view.*
 
 
 class ImageInfoFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(layout.fragment_image_info, container, false)
-        return view
+        return inflater.inflate(layout.fragment_image_info, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        info_tb.setOnClickListener {
+        infoToolbar.setOnClickListener {
             activity?.supportFragmentManager?.popBackStack()
         }
 
         val bundle: Bundle? = this.arguments
 
-        Picasso.get().load(RetrofitApi.MEDIA_URL + (bundle?.getString("imageFileName"))).fit().into(view.infoImageView)
+        Picasso.get().load(RetrofitApi.MEDIA_URL + (bundle?.getString("imageFileName"))).fit()
+            .into(view.infoImageView)
 
-        view.imageInfoTextDescription.text = bundle?.getString("imageDescription")
-        view.imageInfoTextName.text = bundle?.getString("imageName")
+        imageInfoTextDescription.text = bundle?.getString("imageDescription")
+        imageInfoTextName.text = bundle?.getString("imageName")
 
     }
 }

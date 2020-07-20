@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -18,38 +18,36 @@
             app:popupTheme="@style/Theme.AppCompat.Light.NoActionBar"
             app:theme="@style/Theme.AppCompat.NoActionBar"
             app:title="@string/menu_popular"
-            app:titleTextColor="@color/colorPrimaryDark"></androidx.appcompat.widget.Toolbar>
+            app:titleTextColor="@color/colorPrimaryDark" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <include
         layout="@layout/layout_place_holder"
-        android:visibility="gone"></include>
+        android:visibility="gone" />
 
 
     <FrameLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/popular_srl"
+            android:id="@+id/popularSwipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/popular_rv_images"
+                android:id="@+id/popularRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:padding="4dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager">
-            </androidx.recyclerview.widget.RecyclerView>
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </FrameLayout>
 
     <com.agrawalsuneet.dotsloader.loaders.LinearDotsLoader
-        android:id="@+id/loader_popular"
+        android:id="@+id/popularLoader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
